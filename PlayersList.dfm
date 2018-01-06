@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 605
-  ClientWidth = 635
+  Caption = #1057#1087#1080#1089#1086#1082' '#1080#1075#1088#1086#1082#1086#1074
+  ClientHeight = 632
+  ClientWidth = 1048
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,22 +13,51 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object LoadDataBtn: TButton
-    Left = 456
-    Top = 136
-    Width = 137
-    Height = 41
-    Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1076#1072#1085#1085#1099#1077
-    TabOrder = 0
-    OnClick = LoadDataBtnClick
-  end
   object AddBtn: TButton
-    Left = 456
-    Top = 200
+    Left = 864
+    Top = 128
     Width = 137
     Height = 41
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1080#1075#1088#1086#1082#1072
-    TabOrder = 1
+    TabOrder = 0
     OnClick = AddBtnClick
+  end
+  object SetFileBtn: TButton
+    Left = 864
+    Top = 64
+    Width = 137
+    Height = 41
+    Caption = #1042#1099#1073#1088#1072#1090#1100' '#1092#1072#1081#1083
+    TabOrder = 1
+    OnClick = SetFileBtnClick
+  end
+  object PlayersListGd: TStringGrid
+    Left = 5
+    Top = 0
+    Width = 810
+    Height = 627
+    Margins.Left = 0
+    Margins.Top = 0
+    Margins.Right = 0
+    Margins.Bottom = 0
+    ColCount = 6
+    DoubleBuffered = True
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect]
+    ParentDoubleBuffered = False
+    TabOrder = 2
+    ColWidths = (
+      64
+      64
+      64
+      64
+      64
+      64)
+    RowHeights = (
+      24
+      24
+      24
+      24
+      24)
   end
 end

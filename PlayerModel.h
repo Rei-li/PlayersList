@@ -18,6 +18,11 @@ public:
 	Player(int id, std::string name, std::string club, std::string role, int points, int penaltyPoints);
 	Player(std::string name, std::string club, std::string role, int points, int penaltyPoints);
 	int GetId();
+	int GetPoints();
+	int GetPenaltyPoints();
+	std::string GetName();
+	std::string GetClub();
+	std::string GetRole();
 	void SetId(int id);
 	std::string ToString();
 	~Player();

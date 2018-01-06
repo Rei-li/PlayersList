@@ -13,11 +13,11 @@
 #pragma once
 
 class Service {
-	ListRepository _repo;
 
 public:
-	Service();
-	Service(std::string fileName);
-	std::vector<Player>LoadData();
-	bool IsFileSet();
+	static void SetFile(std::string fileName);
+	static void LoadData();
+    static std::vector<Player>GetRecords();
+	static void SavePlayer(std::string id, std::string name, std::string club, std::string role, std::string points, std::string penaltyPoints);
+//	static bool IsFileSet();
 };

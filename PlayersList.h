@@ -8,16 +8,18 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include "Service.h"
+#include <Vcl.Grids.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
-	TButton *LoadDataBtn;
 	TButton *AddBtn;
-	void __fastcall LoadDataBtnClick(TObject *Sender);
+	TButton *SetFileBtn;
+	TStringGrid *PlayersListGd;
 	void __fastcall AddBtnClick(TObject *Sender);
-private:		Service _service;
-public:		// User declarations
+	void __fastcall SetFileBtnClick(TObject *Sender);
+private:    void LoadDataToGrid(std::vector<Player> players);
+public:		void ReloadGridData();
 	__fastcall TForm1(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
