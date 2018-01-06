@@ -36,7 +36,7 @@ object Form1: TForm1
     Left = 5
     Top = 0
     Width = 810
-    Height = 627
+    Height = 489
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
@@ -78,5 +78,31 @@ object Form1: TForm1
     Enabled = False
     TabOrder = 4
     OnClick = DeleteBtnClick
+  end
+  object SortByPointsBtn: TButton
+    Left = 5
+    Top = 536
+    Width = 240
+    Height = 57
+    Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1072#1090#1100' '#1087#1086' '#1082#1086#1083#1080#1095#1077#1089#1090#1074#1091' '#1079#1072#1073#1080#1090#1099#1093' '#1084#1103#1095#1077#1081
+    TabOrder = 5
+    OnClick = SortByPointsBtnClick
+  end
+  object BestPlayersBtn: TButton
+    Left = 288
+    Top = 536
+    Width = 240
+    Height = 57
+    Caption = #1051#1091#1095#1096#1080#1077' '#1080#1075#1088#1086#1082#1080' '#1089#1077#1079#1086#1085#1072
+    TabOrder = 6
+  end
+  object PenaltyPlayersBtn: TButton
+    Left = 575
+    Top = 536
+    Width = 240
+    Height = 57
+    Caption = #1064#1090#1088#1072#1092#1085#1080#1082#1080
+    TabOrder = 7
+    OnClick = PenaltyPlayersBtnClick
   end
 end

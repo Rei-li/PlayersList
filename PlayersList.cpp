@@ -11,6 +11,7 @@
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
+
 TForm1 *Form1;
 
 // ---------------------------------------------------------------------------
@@ -45,8 +46,8 @@ void __fastcall TForm1::SetFileBtnClick(TObject *Sender) {
 	std::vector<Player>players = Service::GetRecords();
 	LoadDataToGrid(players);
 	DeleteBtn->Enabled = true;
-	EditBtn ->Enabled = true;
-    AddBtn->Enabled = true;
+	EditBtn->Enabled = true;
+	AddBtn->Enabled = true;
 }
 // ---------------------------------------------------------------------------
 
@@ -74,12 +75,19 @@ void TForm1::ReloadGridData() {
 	LoadDataToGrid(players);
 }
 
+void TForm1::ClearGrid() {
+for (int i=1; i < Form1->PlayersListGd->RowCount; i++) {
+	Form1->PlayersListGd->Rows[i]->Clear();
+  }
+}
+
 void TForm1::LoadDataToGrid(std::vector<Player>players) {
+	ClearGrid();
 	int size = players.size();
 	int rowsCount = size + 1;
 	Form1->PlayersListGd->RowCount = rowsCount;
-	if (players.size() > 0) {
-		for (unsigned int counter = 0; counter <= players.size(); counter++) {
+	if (size > 0) {
+		for (unsigned int counter = 0; counter < size; counter++) {
 			Player player = players[counter];
 			int rowIndex = counter + 1;
 			Form1->PlayersListGd->Cells[0][rowIndex] = String(player.GetId());
@@ -93,3 +101,16 @@ void TForm1::LoadDataToGrid(std::vector<Player>players) {
 		}
 	}
 }
+
+void __fastcall TForm1::SortByPointsBtnClick(TObject *Sender) {
+	std::vector<Player>players = Service::GetSortedListByPoints();
+	LoadDataToGrid(players);
+}
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::PenaltyPlayersBtnClick(TObject *Sender) {
+	std::vector<Player>players = Service::GetSortedListByPenaltyPoints();
+	LoadDataToGrid(players);
+	Form1->PlayersListGd->RowCount = 10;
+}
+// ---------------------------------------------------------------------------
