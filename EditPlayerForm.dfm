@@ -1,7 +1,7 @@
-object Form2: TForm2
+object Form3: TForm3
   Left = 0
   Top = 0
-  Caption = #1053#1086#1074#1099#1081' '#1080#1075#1088#1086#1082
+  Caption = #1056#1077#1076#1072#1082#1090#1086#1088' '#1076#1072#1085#1085#1099#1093' '#1086#1073' '#1080#1075#1088#1086#1082#1077
   ClientHeight = 366
   ClientWidth = 635
   Color = clBtnFace
@@ -11,7 +11,7 @@ object Form2: TForm2
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel

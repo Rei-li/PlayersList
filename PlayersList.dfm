@@ -19,6 +19,7 @@ object Form1: TForm1
     Width = 137
     Height = 41
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1080#1075#1088#1086#1082#1072
+    Enabled = False
     TabOrder = 0
     OnClick = AddBtnClick
   end
@@ -43,6 +44,8 @@ object Form1: TForm1
     ColCount = 6
     DoubleBuffered = True
     FixedCols = 0
+    RowCount = 1
+    FixedRows = 0
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect]
     ParentDoubleBuffered = False
     TabOrder = 2
@@ -54,10 +57,26 @@ object Form1: TForm1
       64
       64)
     RowHeights = (
-      24
-      24
-      24
-      24
       24)
+  end
+  object EditBtn: TButton
+    Left = 864
+    Top = 192
+    Width = 137
+    Height = 41
+    Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
+    Enabled = False
+    TabOrder = 3
+    OnClick = EditBtnClick
+  end
+  object DeleteBtn: TButton
+    Left = 864
+    Top = 256
+    Width = 137
+    Height = 41
+    Caption = #1059#1076#1072#1083#1080#1090#1100
+    Enabled = False
+    TabOrder = 4
+    OnClick = DeleteBtnClick
   end
 end

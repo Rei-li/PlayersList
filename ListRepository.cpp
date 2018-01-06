@@ -38,7 +38,7 @@ void ListRepository::LoadData() {
 	counter = 0;
 
 	std::stringstream fullData(text);
-    _players.clear();
+	_players.clear();
 	while (getline(fullData, line, ';')) {
 		string subString;
 		std::stringstream busStringfullData(line);
@@ -84,6 +84,25 @@ void ListRepository::AddRecord(Player player) {
 }
 
 void ListRepository::DeleteRecord(int id) {
+	vector<Player>updatedPlayersList;
+	std::ofstream ofs;
+	ofs.open(_fileName, std::ofstream::out | std::ofstream::trunc);
+	for (unsigned int counter = 0; counter < _players.size(); counter++) {
+		if (_players[counter].GetId() != id) {
+			updatedPlayersList.push_back(_players[counter]);
+			ofs << _players[counter].ToString() << endl;
+		}
+	}
+	ofs.close();
+	_players.swap(updatedPlayersList);
+}
+
+Player ListRepository::GetRecord(int id) {
+	for (unsigned int counter = 0; counter < _players.size(); counter++) {
+		if (_players[counter].GetId() == id) {
+			return _players[counter];
+		}
+	}
 }
 
 void ListRepository::UpdateRecord(Player updatedPlayer) {

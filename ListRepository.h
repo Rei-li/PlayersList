@@ -20,6 +20,7 @@ public:
 	static void LoadData();
 	static void AddRecord(Player player);
 	static void DeleteRecord(int id);
+	static Player GetRecord(int id);
 	static void UpdateRecord(Player updatedPlayer);
 	static std::vector<Player>GetRecords();
 

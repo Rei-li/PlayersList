@@ -5,6 +5,7 @@
 
 #include "PlayersList.h"
 #include "AddPlayerForm.h"
+#include "EditPlayerForm.h"
 #include "Service.h"
 #include <string>
 // ---------------------------------------------------------------------------
@@ -35,8 +36,6 @@ void __fastcall TForm1::AddBtnClick(TObject *Sender) {
 
 // ---------------------------------------------------------------------------
 void __fastcall TForm1::SetFileBtnClick(TObject *Sender) {
-	// bool isfileSelected = Service::IsFileSet();
-	// if(!isfileSelected){
 	TOpenDialog *OpenDialog = new TOpenDialog(Form1);
 	if (!OpenDialog->Execute())
 		return;
@@ -45,7 +44,28 @@ void __fastcall TForm1::SetFileBtnClick(TObject *Sender) {
 	Service::LoadData();
 	std::vector<Player>players = Service::GetRecords();
 	LoadDataToGrid(players);
-	// }
+	DeleteBtn->Enabled = true;
+	EditBtn ->Enabled = true;
+    AddBtn->Enabled = true;
+}
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::EditBtnClick(TObject *Sender) {
+	int selectedRow = Form1->PlayersListGd->Row;
+	if (selectedRow > 0) {
+		Form3->Show();
+	}
+}
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::DeleteBtnClick(TObject *Sender) {
+	int selectedRow = PlayersListGd->Row;
+	if (selectedRow > 0) {
+		std::string id(AnsiString(PlayersListGd->Cells[0][selectedRow])
+			.c_str());
+		Service::DeleteRecord(id);
+		ReloadGridData();
+	}
 }
 // ---------------------------------------------------------------------------
 

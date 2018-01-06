@@ -1,14 +1,15 @@
 //---------------------------------------------------------------------------
 
-#ifndef AddPlayerFormH
-#define AddPlayerFormH
+#ifndef EditPlayerFormH
+#define EditPlayerFormH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
+#include "PlayerModel.h"
 //---------------------------------------------------------------------------
-class TForm2 : public TForm
+class TForm3 : public TForm
 {
 __published:	// IDE-managed Components
 	TLabel *Label1;
@@ -22,13 +23,13 @@ __published:	// IDE-managed Components
 	TEdit *PointsInput;
 	TEdit *PenaltyPointsInput;
 	TButton *SaveBtn;
+	void __fastcall FormShow(TObject *Sender);
 	void __fastcall SaveBtnClick(TObject *Sender);
-	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
-private:	// User declarations
+private:	static Player player;
 public:		// User declarations
-	__fastcall TForm2(TComponent* Owner);
+	__fastcall TForm3(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm2 *Form2;
+extern PACKAGE TForm3 *Form3;
 //---------------------------------------------------------------------------
 #endif

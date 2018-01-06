@@ -19,14 +19,26 @@ void Service::SetFile(std::string fileName) {
 }
 
 void Service::LoadData() {
-         ListRepository::LoadData();
+	ListRepository::LoadData();
 }
 
-std::vector<Player>Service::GetRecords(){
-		return ListRepository::GetRecords();
+std::vector<Player>Service::GetRecords() {
+	return ListRepository::GetRecords();
 }
 
-void Service::SavePlayer(std::string id, std::string name, std::string club, std::string role, std::string points, std::string penaltyPoints) {
+void Service::DeleteRecord(std::string id) {
+	if (id != "") {
+		int playerId = stoi(id);
+		ListRepository::DeleteRecord(playerId);
+	}
+}
+
+Player Service::GetRecord(int id){
+	   return  ListRepository::GetRecord(id);
+}
+
+void Service::SavePlayer(std::string id, std::string name, std::string club,
+	std::string role, std::string points, std::string penaltyPoints) {
 
 	int playerId;
 	int playerPoints;

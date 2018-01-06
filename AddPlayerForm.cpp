@@ -26,15 +26,18 @@ void __fastcall TForm2::SaveBtnClick(TObject *Sender) {
 
 	Service::SavePlayer(std::string(), name, club, role, points, penaltyPoints);
 
+	Form1->ReloadGridData();
+
+	Form2->Close();
+
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm2::FormClose(TObject *Sender, TCloseAction &Action) {
 	NameInput->Text = "";
 	ClubInput->Text = "";
 	RoleInput->Text = "";
 	PointsInput->Text = "";
 	PenaltyPointsInput->Text = "";
-
-	Form1->ReloadGridData();
-
-	Form2->Close();
-
 }
 // ---------------------------------------------------------------------------
