@@ -76,9 +76,9 @@ void TForm1::ReloadGridData() {
 }
 
 void TForm1::ClearGrid() {
-for (int i=1; i < Form1->PlayersListGd->RowCount; i++) {
-	Form1->PlayersListGd->Rows[i]->Clear();
-  }
+	for (int i = 1; i < Form1->PlayersListGd->RowCount; i++) {
+		Form1->PlayersListGd->Rows[i]->Clear();
+	}
 }
 
 void TForm1::LoadDataToGrid(std::vector<Player>players) {
@@ -111,6 +111,13 @@ void __fastcall TForm1::SortByPointsBtnClick(TObject *Sender) {
 void __fastcall TForm1::PenaltyPlayersBtnClick(TObject *Sender) {
 	std::vector<Player>players = Service::GetSortedListByPenaltyPoints();
 	LoadDataToGrid(players);
-	Form1->PlayersListGd->RowCount = 10;
+	Form1->PlayersListGd->RowCount = 11;
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::BestPlayersBtnClick(TObject *Sender) {
+	std::vector<Player>players = Service::GetBestPlayersList();
+	LoadDataToGrid(players);
+	Form1->PlayersListGd->RowCount = 11;
 }
 // ---------------------------------------------------------------------------

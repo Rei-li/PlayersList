@@ -107,6 +107,21 @@ std::vector<Player>Service::GetSortedListByPenaltyPoints() {
 	return CopyReversed(copiedPlayers);
 }
 
+std::vector<Player>Service::GetBestPlayersList() {
+	std::vector<Player>players = ListRepository::GetRecords();
+	std::vector<Player> *copiedPlayers = new std::vector<Player>();
+
+	for (unsigned int counter = 0; counter < players.size(); counter++) {
+
+		copiedPlayers->push_back(players[counter]);
+
+	}
+
+	QuickSortByPoints(copiedPlayers, 0, copiedPlayers->size() - 1);
+
+	return CopyReversedAndSortByPenaltyPoints(copiedPlayers);
+}
+
 void Service::QuickSortByPoints(std::vector<Player> *players, int left,
 	int right) {
 
@@ -215,6 +230,58 @@ std::vector<Player>Service::CopyReversed(std::vector<Player> *players) {
 		resultList.push_back((*players)[counter]);
 
 	}
+	return resultList;
+
+}
+
+std::vector<Player>Service::CopyReversedAndSortByPenaltyPoints
+	(std::vector<Player> *players) {
+	std::vector<Player>resultList;
+	std::vector<Player> *equalPlayers = new std::vector<Player>();
+	int size = players->size() - 1;
+	for (int counter = size; counter >= 0; counter--) {
+			  int equalPlayersSize =  equalPlayers->size()           ;
+		if (equalPlayersSize == 0) {
+			equalPlayers->push_back((*players)[counter]);
+		}
+		else {
+			int points = (*players)[counter].GetPoints();
+			int pointsPrevious = equalPlayers->back().GetPoints();
+			if (points == pointsPrevious) {
+				equalPlayers->push_back((*players)[counter]);
+			}
+			else {
+				if (equalPlayers->size() > 1) {
+					QuickSortByPenaltyPoints(equalPlayers, 0,
+						equalPlayers->size() - 1);
+					for (unsigned int i = 0; i < equalPlayers->size(); i++) {
+						resultList.push_back((*equalPlayers)[i]);
+					}
+				}
+				else {
+					resultList.push_back((*equalPlayers)[0]);
+				}
+
+				equalPlayers->clear();
+				equalPlayers->push_back((*players)[counter]);
+			}
+
+		}
+
+	}
+
+	if (equalPlayers->size() > 0) {
+		if (equalPlayers->size() > 1) {
+			QuickSortByPenaltyPoints(equalPlayers, 0, equalPlayers->size() - 1);
+			for (unsigned int i = 0; i < equalPlayers->size(); i++) {
+				resultList.push_back((*equalPlayers)[i]);
+			}
+		}
+		else {
+			resultList.push_back((*equalPlayers)[0]);
+		}
+	}
+
 	return resultList;
 
 }

@@ -95,6 +95,7 @@ object Form1: TForm1
     Height = 57
     Caption = #1051#1091#1095#1096#1080#1077' '#1080#1075#1088#1086#1082#1080' '#1089#1077#1079#1086#1085#1072
     TabOrder = 6
+    OnClick = BestPlayersBtnClick
   end
   object PenaltyPlayersBtn: TButton
     Left = 575

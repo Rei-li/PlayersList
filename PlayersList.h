@@ -27,6 +27,7 @@ __published:	// IDE-managed Components
 	void __fastcall DeleteBtnClick(TObject *Sender);
 	void __fastcall SortByPointsBtnClick(TObject *Sender);
 	void __fastcall PenaltyPlayersBtnClick(TObject *Sender);
+	void __fastcall BestPlayersBtnClick(TObject *Sender);
 private:    void LoadDataToGrid(std::vector<Player> players);
             void ClearGrid();
 public:		void ReloadGridData();

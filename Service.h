@@ -24,6 +24,7 @@ public:
 		std::string role, std::string points, std::string penaltyPoints);
 	static std::vector<Player>GetSortedListByPoints();
 	static std::vector<Player>GetSortedListByPenaltyPoints();
+	static std::vector<Player>GetBestPlayersList();
 	// static bool IsFileSet();
 
 private:
@@ -33,5 +34,7 @@ private:
 		int right);
 	static std::vector<Player>Service::Copy(std::vector<Player> *players);
 	static std::vector<Player>Service::CopyReversed
+		(std::vector<Player> *players);
+	static std::vector<Player>CopyReversedAndSortByPenaltyPoints
 		(std::vector<Player> *players);
 };
